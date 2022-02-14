@@ -142,13 +142,22 @@ let testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
-  let firstEl = dynamicArray[0];
+  // Below was my initial attempt that failed so I commented it out and instead have written Audrey's solution below it:
+
+  /* let firstEl = dynamicArray[0];
   for (let i = 0; i < dynamicArray.length-1; i++) {
     firstEl = multiply(firstEl, dynamicArray[i+1][0]);
   }
 
   let secondEl = `The numbers ${dynamicArray} have a product of ${firstEl}.`;
-  return [firstEl,secondEl];
+  return [firstEl,secondEl]; */
+  let product = 1;
+
+  for(let i = 0; i < dynamicArray.length; i++) {
+    product = multiply(product, dynamicArray[i])[0];
+  }
+
+  return [product, `The numbers ${dynamicArray} have a product of ${product}.`];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
